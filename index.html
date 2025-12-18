@@ -113,6 +113,10 @@
         .mobile-scroll-snap > * {
             scroll-snap-align: start;
         }
+        
+        .hidden-item {
+            display: none; /* Class khusus untuk logic Load More */
+        }
     </style>
 </head>
 <body class="font-body selection:bg-secondary selection:text-white antialiased">
@@ -219,18 +223,19 @@
                 <button class="filter-btn flex-shrink-0 snap-start px-6 py-2.5 rounded-full border border-white/10 text-gray-300 active:bg-white/10 transition-all text-sm font-medium whitespace-nowrap" data-filter="umkm">UMKM & Bengkel</button>
                 <button class="filter-btn flex-shrink-0 snap-start px-6 py-2.5 rounded-full border border-white/10 text-gray-300 active:bg-white/10 transition-all text-sm font-medium whitespace-nowrap" data-filter="travel">Travel</button>
                 <button class="filter-btn flex-shrink-0 snap-start px-6 py-2.5 rounded-full border border-white/10 text-gray-300 active:bg-white/10 transition-all text-sm font-medium whitespace-nowrap" data-filter="property">Property</button>
+                <!-- TAMBAHAN BARU: Tombol Undangan Digital -->
+                <button class="filter-btn flex-shrink-0 snap-start px-6 py-2.5 rounded-full border border-white/10 text-gray-300 active:bg-white/10 transition-all text-sm font-medium whitespace-nowrap" data-filter="undangan">Undangan Digital</button>
             </div>
 
             <!-- Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="portfolio-grid">
                 
-                <!-- Item 1: Kuliner -->
+                <!-- === KULINER === -->
+                <!-- Item 1: Kuliner (Original) -->
                 <div class="portfolio-item group" data-category="kuliner">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://berkahcatering.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
-                                <!-- Loading Lazy is key for mobile performance -->
                                 <img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Restaurant Web" class="card-img w-full h-full object-cover transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
                                     <div class="w-12 h-12 rounded-full bg-white text-dark flex items-center justify-center hover:bg-primary hover:text-white transition-colors"><i class="fas fa-link"></i></div>
@@ -249,11 +254,11 @@
                     </div>
                 </div>
 
-                <!-- Item 2: Property -->
+                <!-- === PROPERTY === -->
+                <!-- Item 2: Property (Original) -->
                 <div class="portfolio-item group" data-category="property">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://bams-property2.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
                                 <img loading="lazy" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" alt="Property Web" class="card-img w-full h-full object-cover transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -263,7 +268,7 @@
                         </div>
                         <div class="p-5 md:p-6 flex-1 flex flex-col">
                             <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Property</span>
-                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Personal Profile Marketing Perumahan</h3>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Personal Website Marketing Perumahan</h3>
                             <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Landing page untuk Marketing/konsultan Perumahan.</p>
                             <div class="flex gap-2 flex-wrap">
                                 <span class="text-[10px] md:text-xs bg-white/5 px-2 py-1 rounded text-gray-400">Personal Web</span>
@@ -273,11 +278,49 @@
                     </div>
                 </div>
 
-                <!-- Item 3: Personal -->
+                <!-- Property Dummy 1 -->
+                <div class="portfolio-item group" data-category="property">
+                    <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
+                        <div class="relative overflow-hidden h-48 md:h-56">
+                            <a href="https://demo-web7.netlify.app/" class="block w-full h-full cursor-pointer">
+                                <img loading="lazy" src="https://demo-web7.netlify.app/aset/image17.webp" alt="Property 2" class="card-img w-full h-full object-cover transition-transform duration-700">
+                            </a>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Property</span>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Personal Website Marketing Perumahan</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Personal Website Untuk Marketing Perumahan.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[10px] md:text-xs bg-white/5 px-2 py-1 rounded text-gray-400">personal Website</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Dummy 2 -->
+                <div class="portfolio-item group" data-category="Personal Profile">
+                    <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
+                        <div class="relative overflow-hidden h-48 md:h-56">
+                            <a href="https://dokter-silvi.pages.dev/" class="block w-full h-full cursor-pointer">
+                                <img loading="lazy" src="https://dokter-silvi.pages.dev/aset/dokter.webp" alt="Dokter Silvi" class="card-img w-full h-full object-cover object-[50%_25%] transition-transform duration-700">
+                            </a>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Personal Profile</span>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Dokter Silvi</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Personal Website untuk Profesi.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[10px] md:text-xs bg-white/5 px-2 py-1 rounded text-gray-400"></span>Branding Profesi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === PERSONAL === -->
+                <!-- Item 3: Personal (Original) -->
                 <div class="portfolio-item group" data-category="personal">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://profesi-guru.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
                                 <img loading="lazy" src="https://profesi-guru.pages.dev/9.png" alt="Personal Web" class="card-img w-full h-full object-cover transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -296,11 +339,10 @@
                     </div>
                 </div>
 
-                <!-- Item 4: Atlet Profile -->
-                <div class="portfolio-item group" data-category="Profil Atlet">
+                <!-- Item 4: Atlet Profile (Original) - Note: Category normalized to 'personal' for filter consistency -->
+                <div class="portfolio-item group" data-category="personal">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://arkanzhafrano.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
                                 <img loading="lazy" src="https://arkanzhafrano.pages.dev/gerak1.webp" alt="Atlet Web" class="card-img w-full h-full object-cover transition-transform duration-800 scale-125">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -319,11 +361,49 @@
                     </div>
                 </div>
 
-                <!-- Item 5: UMKM / Bengkel -->
+                <!-- Personal Dummy 1 -->
+                <div class="portfolio-item group" data-category="personal">
+                    <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
+                        <div class="relative overflow-hidden h-48 md:h-56">
+                            <a href="#" class="block w-full h-full cursor-pointer">
+                                <img loading="lazy" src="https://danang-honda.pages.dev/asset/cust3.webp" alt="Sales Honda" class="card-img w-full h-full object-cover transition-transform duration-700">
+                            </a>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-secondary uppercase tracking-wider mb-2">Personal Profile</span>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Sales Motor Honda</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Personal Website Untuk Sales.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[10px] md:text-xs bg-white/5 px-2 py-1 rounded text-gray-400">Professional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Dummy 2 -->
+                <div class="portfolio-item group" data-category="personal">
+                    <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
+                        <div class="relative overflow-hidden h-48 md:h-56">
+                            <a href="#" class="block w-full h-full cursor-pointer">
+                                <img loading="lazy" src="https://devilestari-toyota.pages.dev/aset/ibu.webp" alt="Doctor" class="card-img w-full h-full object-cover transition-transform duration-700">
+                            </a>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-secondary uppercase tracking-wider mb-2">Personal Profile</span>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Devi Sales Toyota</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Personal Website Untuk Sales Mobil.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[10px] md:text-xs bg-white/5 px-2 py-1 rounded text-gray-400">Medical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === UMKM & BENGKEL === -->
+                <!-- Item 5: UMKM / Bengkel (Original) -->
                 <div class="portfolio-item group" data-category="umkm">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://autoprima.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
                                 <img loading="lazy" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bengkel Web" class="card-img w-full h-full object-cover transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -341,11 +421,11 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Item 6: UMKM -->
+
+                 <!-- Item 6: UMKM (Original) -->
                  <div class="portfolio-item group" data-category="umkm">
                     <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
                         <div class="relative overflow-hidden h-48 md:h-56">
-                            <!-- Wrap image in Anchor Link -->
                             <a href="https://kafesenja.pages.dev/" target="_blank" class="block w-full h-full cursor-pointer">
                                 <img loading="lazy" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1000&auto=format&fit=crop" alt="Craft Web" class="card-img w-full h-full object-cover transition-transform duration-700">
                                 <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -364,10 +444,30 @@
                     </div>
                 </div>
 
+                <!-- === UNDANGAN DIGITAL === -->
+                <!-- Item Baru: Undangan Digital -->
+                <div class="portfolio-item group" data-category="undangan">
+                    <div class="portfolio-card glass rounded-2xl overflow-hidden h-full flex flex-col shadow-lg">
+                        <div class="relative overflow-hidden h-48 md:h-56">
+                            <a href="https://vina-wedding.pages.dev/" class="block w-full h-full cursor-pointer">
+                                <img loading="lazy" src="https://vina-wedding.pages.dev/aset/wed1.webp" alt="Undangan" class="card-img w-full h-full object-cover transition-transform duration-700">
+                            </a>
+                        </div>
+                        <div class="p-5 md:p-6 flex-1 flex flex-col">
+                            <span class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">Wedding</span>
+                            <h3 class="text-lg md:text-xl font-heading font-bold text-white mb-2">Undangan Nikah Digital</h3>
+                            <p class="text-gray-400 text-sm mb-4 flex-1 line-clamp-3">Undangan digital estetik dengan fitur RSVP, Countdown, dan Galeri.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
-            <div class="text-center mt-12">
-                <button class="w-full md:w-auto px-8 py-3.5 rounded-full border border-white/20 text-white hover:bg-white/10 active:bg-white/10 transition-all font-semibold">Lihat Lebih Banyak</button>
+            <!-- Load More Button Container -->
+            <div class="text-center mt-12 hidden" id="load-more-container">
+                <button id="load-more-btn" class="w-full md:w-auto px-8 py-3.5 rounded-full border border-white/20 text-white hover:bg-white/10 active:bg-white/10 transition-all font-semibold group">
+                    Lihat Lebih Banyak <i class="fas fa-chevron-down ml-2 group-hover:translate-y-1 transition-transform"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -431,6 +531,8 @@
                                     <option value="UMKM / Bisnis">UMKM / Bisnis</option>
                                     <option value="Kuliner">Kuliner</option>
                                     <option value="Personal Profile">Personal Profile</option>
+                                    <!-- Tambahan Undangan Digital di Form -->
+                                    <option value="Undangan Digital">Undangan Digital</option>
                                     <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
@@ -478,6 +580,90 @@
 
     <!-- Scripts -->
     <script>
+        // --- LOGIC LOAD MORE & FILTERING (NEW) ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const loadMoreContainer = document.getElementById('load-more-container');
+
+        let currentFilter = 'all';
+        let itemsToShow = 6; // Jumlah item awal yang tampil
+        let itemsIncrement = 3; // Jumlah item tambahan saat klik Load More
+
+        function initPortfolio() {
+            filterItems('all');
+        }
+
+        function filterItems(category) {
+            currentFilter = category;
+            
+            // 1. Sembunyikan semua item terlebih dahulu
+            portfolioItems.forEach(item => {
+                item.classList.add('hidden-item');
+                item.style.display = 'none'; 
+            });
+
+            // 2. Ambil item yang sesuai kategori
+            const matchedItems = Array.from(portfolioItems).filter(item => {
+                return category === 'all' || item.getAttribute('data-category') === category;
+            });
+
+            // 3. Tampilkan sejumlah limit (itemsToShow)
+            let visibleCount = 0;
+            matchedItems.forEach((item, index) => {
+                if (index < itemsToShow) {
+                    item.classList.remove('hidden-item');
+                    item.style.display = 'block';
+                    // Animasi masuk halus
+                    item.animate([
+                        { opacity: 0, transform: 'scale(0.95)' },
+                        { opacity: 1, transform: 'scale(1)' }
+                    ], {
+                        duration: 300,
+                        easing: 'ease-out'
+                    });
+                    visibleCount++;
+                }
+            });
+
+            // 4. Cek apakah tombol Load More perlu muncul
+            if (matchedItems.length > itemsToShow) {
+                loadMoreContainer.classList.remove('hidden');
+            } else {
+                loadMoreContainer.classList.add('hidden');
+            }
+        }
+
+        // Event Listener Tombol Filter
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset active class
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Saat ganti kategori, reset jumlah item ke default (6)
+                itemsToShow = 6;
+                
+                // Smooth scroll button into view (Mobile UX)
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+                const filterValue = btn.getAttribute('data-filter');
+                filterItems(filterValue);
+            });
+        });
+
+        // Event Listener Tombol Load More
+        loadMoreBtn.addEventListener('click', () => {
+            itemsToShow += itemsIncrement;
+            filterItems(currentFilter); // Jalankan ulang filter dengan limit baru
+        });
+
+        // Jalankan saat halaman dimuat
+        initPortfolio();
+
+
+        // --- STANDARD UTILS (WhatsApp, Menu, Scroll) ---
+        
         // WhatsApp Form Logic
         function sendToWhatsapp() {
             const name = document.getElementById('contact-name').value;
@@ -521,42 +707,6 @@
                 if (!mobileMenu.classList.contains('hidden')) {
                     toggleMenu();
                 }
-            });
-        });
-
-        // Portfolio Filtering Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-
-                // Smooth scroll button into view if on mobile
-                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                portfolioItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    
-                    if (filterValue === 'all' || filterValue === itemCategory) {
-                        item.style.display = 'block';
-                        // Add fade in animation
-                        item.animate([
-                            { opacity: 0, transform: 'scale(0.95)' },
-                            { opacity: 1, transform: 'scale(1)' }
-                        ], {
-                            duration: 300,
-                            easing: 'ease-out'
-                        });
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
             });
         });
 
